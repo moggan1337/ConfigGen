@@ -1,0 +1,35 @@
+application:
+  name: ${app_name}
+  version: ${version}
+  environment: ${environment:development}
+
+database:
+  host: ${db_host:localhost}
+  port: ${db_port:5432}
+  name: ${db_name:myapp}
+  user: ${db_user}
+  password: ${db_password}
+  ssl: ${db_ssl:false}
+
+server:
+  host: ${server_host:0.0.0.0}
+  port: ${server_port:8080}
+  debug: ${debug:false}
+  workers: ${workers:4}
+
+logging:
+  level: ${log_level:INFO}
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  handlers:
+    - type: console
+      level: ${log_level:INFO}
+    {% if environment == 'production' %}
+    - type: file
+      level: WARNING
+      filename: /var/log/app.log
+    {% endif %}
+
+features:
+  enable_cache: ${enable_cache:true}
+  enable_metrics: ${enable_metrics:true}
+  enable_tracing: ${enable_tracing:false}

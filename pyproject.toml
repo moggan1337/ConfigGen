@@ -1,0 +1,69 @@
+[build-system]
+requires = ["setuptools>=65.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "configgen"
+version = "1.0.0"
+description = "Dynamic configuration file generator with templates, validation, and multi-format support"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "ConfigGen Contributors", email = "configgen@example.com"}
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "pyyaml>=6.0",
+    "jinja2>=3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "black>=23.0",
+    "flake8>=6.0",
+    "mypy>=1.0",
+]
+toml = [
+    "tomli>=2.0",
+    "tomli-w>=1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/moggan1337/ConfigGen"
+Documentation = "https://github.com/moggan1337/ConfigGen#readme"
+Repository = "https://github.com/moggan1337/ConfigGen"
+Issues = "https://github.com/moggan1337/ConfigGen/issues"
+
+[project.scripts]
+configgen = "configgen.cli:main"
+
+[tool.setuptools.packages.find]
+exclude = ["tests", "tests.*", "examples", "docs"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
