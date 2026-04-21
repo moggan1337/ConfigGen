@@ -14,6 +14,24 @@
 
 ---
 
+## 🎬 Demo
+![ConfigGen Demo](demo.gif)
+
+*Generate configs from templates with inheritance*
+
+## Screenshots
+| Component | Preview |
+|-----------|---------|
+| Template Editor | ![template](screenshots/template-editor.png) |
+| Config Preview | ![preview](screenshots/config-preview.png) |
+| Environment Diff | ![diff](screenshots/env-diff.png) |
+
+## Visual Description
+Template editor shows inheritance hierarchies with nested variable substitution. Config preview renders final output with syntax highlighting. Environment diff highlights differences between dev/staging/prod.
+
+---
+
+
 ## Table of Contents
 
 - [Features](#features)
